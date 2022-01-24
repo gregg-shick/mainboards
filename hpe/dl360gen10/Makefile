@@ -1,6 +1,6 @@
 MAJOR ?= 5
-STABLE = $(MAJOR).4
-CONFIG ?= $(MAJOR).4.0
+STABLE = $(MAJOR).16
+CONFIG ?= $(MAJOR).16.2
 KEYPATH ?= ""
 
 default: build
@@ -143,8 +143,8 @@ getkernel:
 	xzcat kernel.xz | tar x
 	mv linux-$(STABLE) linux
 getfiano:
-	go get -u github.com/linuxboot/fiano/cmds/utk
-	go install github.com/linuxboot/fiano/cmds/utk
+#	go get -u github.com/linuxboot/fiano/cmds/utk
+	go install github.com/linuxboot/fiano/cmds/utk@latest
 getrom:
 	@echo If you plan to flash to hardware,
 	@echo you will need to get a rom imagei
@@ -155,5 +155,5 @@ getrom:
 	@echo and run that kernel via qemu
 
 geturoot:
-	go get -v -u github.com/u-root/u-root
-
+#	go get -v -u github.com/u-root/u-root
+	go install github.com/u-root/u-root@latest
